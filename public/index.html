@@ -1,0 +1,28 @@
+<html>
+<head>
+	<style>
+
+	</style>
+</head>
+<body>
+    <input id="user" type="text" placeholder="ingresa el usario de sin la @">
+    <button id="pedir">Obtener</button>
+    <div id="destino_tweet">
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+		$(function() {
+
+		  $('#pedir').click(function() {
+
+			$.ajax({
+			  url: '/ultimotweet/' + $('#user').val()
+			}).done(function( data ) {
+				$('#destino_tweet').text(data);
+			});
+
+		  });
+
+		});
+    </script>
+</body></html>
